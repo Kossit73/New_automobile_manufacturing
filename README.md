@@ -38,6 +38,26 @@ print(simulate_plan(plan))
 
 Running the above produces a concise summary of the expected daily throughput and material requirements per stage.
 
+## RAG Feasibility Study Generator
+
+The repository also includes a standalone FastAPI service (`rag_app.py`) that ingests project files, captures a financial snapshot from Excel, and drafts a grounded feasibility study using retrieval augmented generation (RAG).
+
+### Endpoints
+
+- `POST /collect`: Persist the financial snapshot and optional cell map extracted from your Excel workbook.
+- `POST /ingest`: Stream upload PDFs, DOCX, PPTX, TXT, CSV, or XLSX files. The service chunks the content, builds a FAISS vector index, and backfills a financial snapshot when possible.
+- `POST /generate`: Compose feasibility study sections using the vector index and financial snapshot, returning JSON/Markdown outputs and an optional NPV curve chart.
+
+### Run locally
+
+```bash
+python -m pip install -r requirements.txt
+export OPENAI_API_KEY="sk-..."
+uvicorn rag_app:app --host 0.0.0.0 --port 8000
+```
+
+Store uploaded and parsed data under `./projects/<project_id>/` by default. The `LLM_MODEL`, `EMBED_MODEL`, and related settings can be adjusted through environment variables at launch.
+
 ## Development
 
 Install the test dependencies and run the suite with `pytest`:
