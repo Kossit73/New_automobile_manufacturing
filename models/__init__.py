@@ -1,19 +1,21 @@
-"""Models package for automobile manufacturing simulations."""
+"""Models package for automobile manufacturing simulations and valuations."""
 
-from .production import (
-    AutomobileModel,
-    AssemblyLine,
-    ProductionPlan,
-    simulate_plan,
-)
+from .production import AutomobileModel, AssemblyLine, ProductionPlan, simulate_plan
 from .financial import (
-    GlobalAssumptions,
-    ProductAssumptions,
-    build_cash_flow_and_valuation,
-    build_income_statement,
-    create_default_product_assumptions,
-    project_production_and_sales,
-    run_model,
+    ForecastEngine,
+    ForecastScenarioBridge,
+    ModelConfig,
+    MonteCarloEngine,
+    Portfolio,
+    Product,
+    ProductConfig,
+    Scenario,
+    ScenarioEngine,
+    ValuationEngine,
+    ValuationResult,
+    VCInputs,
+    VCValuator,
+    demo_portfolio,
 )
 
 __all__ = [
@@ -21,11 +23,18 @@ __all__ = [
     "AssemblyLine",
     "ProductionPlan",
     "simulate_plan",
-    "GlobalAssumptions",
-    "ProductAssumptions",
-    "build_cash_flow_and_valuation",
-    "build_income_statement",
-    "create_default_product_assumptions",
-    "project_production_and_sales",
-    "run_model",
+    "ForecastEngine",
+    "ForecastScenarioBridge",
+    "ModelConfig",
+    "MonteCarloEngine",
+    "Portfolio",
+    "Product",
+    "ProductConfig",
+    "Scenario",
+    "ScenarioEngine",
+    "ValuationEngine",
+    "ValuationResult",
+    "VCInputs",
+    "VCValuator",
+    "demo_portfolio",
 ]

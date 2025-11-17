@@ -40,21 +40,22 @@ Running the above produces a concise summary of the expected daily throughput an
 
 ## Financial projection quickstart
 
-The repository now ships with a lightweight multi-product financial model in `models/financial.py`. Use the defaults to
-generate sales, income statement, cash flow, and valuation outputs:
+The repository now ships with an advanced multi-asset financial engine in `models/financial.py` that supports probability-weighted
+product portfolios, rNPV/DCF valuation, VC-style back-solving, scenario stress testing, Monte Carlo analysis, and forecast-driven
+scenario bridges. A quick demo valuation can be run with:
 
 ```python
-from models.financial import run_model
+from models.financial import demo_portfolio, Scenario, ScenarioEngine
 
-results = run_model()
-print(results["income_statement"].head())
-print(results["cash_flow"].head())
-print(results["valuation"])
+result = demo_portfolio()
+print("rNPV", result.rnpv)
+
+scenarios = [Scenario(name="High Growth", revenue_multiplier=1.2, cost_multiplier=0.95)]
+print(ScenarioEngine(result.portfolio).run_scenarios(scenarios))
 ```
 
-Pass in custom `GlobalAssumptions` and per-product `ProductAssumptions` to mirror your Excel workbook inputs. The helper
-returns Pandas DataFrames for sales, income statement, and cash flow along with a valuation dictionary containing
-enterprise value, NPV, IRR, and terminal value.
+Pass in custom `ModelConfig` and per-product `ProductConfig` values to mirror your Excel workbook inputs. Each valuation returns
+per-product probability-weighted cash flows, a consolidated FCFF/EBITDA table, and a discounted cash-flow table used for rNPV.
 
 ### Streamlit planner
 
