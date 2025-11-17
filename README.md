@@ -66,3 +66,7 @@ Install the test dependencies and run the suite with `pytest`:
 python -m pip install -r requirements.txt
 python -m pytest
 ```
+
+## Financial Model Overview
+
+For a deeper description of the planned financial workflows—including labor, CAPEX, reporting schedules, and the end-to-end forecasting pipeline—see [docs/financial_model_overview.md](docs/financial_model_overview.md).
