@@ -99,4 +99,4 @@ python -m pytest
 
 ## Financial Model Overview
 
-For a deeper description of the planned financial workflows—including labor, CAPEX, reporting schedules, and the end-to-end forecasting pipeline—see [docs/financial_model_overview.md](docs/financial_model_overview.md).
+For a deeper description of the planned financial workflows—including labor, CAPEX, reporting schedules, and the end-to-end forecasting pipeline—see [docs/financial_model_overview.md](docs/financial_model_overview.md). A ready-to-share, illustrative set of schedules for the demo project lives in [docs/schedules_catalog.md](docs/schedules_catalog.md).
