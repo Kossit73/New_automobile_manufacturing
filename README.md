@@ -38,6 +38,24 @@ print(simulate_plan(plan))
 
 Running the above produces a concise summary of the expected daily throughput and material requirements per stage.
 
+## Financial projection quickstart
+
+The repository now ships with a lightweight multi-product financial model in `models/financial.py`. Use the defaults to
+generate sales, income statement, cash flow, and valuation outputs:
+
+```python
+from models.financial import run_model
+
+results = run_model()
+print(results["income_statement"].head())
+print(results["cash_flow"].head())
+print(results["valuation"])
+```
+
+Pass in custom `GlobalAssumptions` and per-product `ProductAssumptions` to mirror your Excel workbook inputs. The helper
+returns Pandas DataFrames for sales, income statement, and cash flow along with a valuation dictionary containing
+enterprise value, NPV, IRR, and terminal value.
+
 ### Streamlit planner
 
 You can explore the same production model through an interactive Streamlit app:
