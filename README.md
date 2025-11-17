@@ -38,6 +38,18 @@ print(simulate_plan(plan))
 
 Running the above produces a concise summary of the expected daily throughput and material requirements per stage.
 
+### Streamlit planner
+
+You can explore the same production model through an interactive Streamlit app:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run streamlit_app.py --server.address 0.0.0.0 --server.port 8501
+```
+
+The app lets you configure stage cycle times, station counts, shifts, and scrap/defect assumptions, then reviews stage-level
+throughput and component requirements. Use the sidebar quickstart inside the app for deployment tips.
+
 ## RAG Feasibility Study Generator
 
 The repository also includes a standalone FastAPI service (`rag_app.py`) that ingests project files, captures a financial snapshot from Excel, and drafts a grounded feasibility study using retrieval augmented generation (RAG).

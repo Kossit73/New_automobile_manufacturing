@@ -10,3 +10,4 @@ matplotlib>=3.8
 openai>=1.23
 python-multipart>=0.0.9
 pytest>=7.4
+streamlit>=1.32
