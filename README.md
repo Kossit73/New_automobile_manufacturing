@@ -57,6 +57,13 @@ print(ScenarioEngine(result.portfolio).run_scenarios(scenarios))
 Pass in custom `ModelConfig` and per-product `ProductConfig` values to mirror your Excel workbook inputs. Each valuation returns
 per-product probability-weighted cash flows, a consolidated FCFF/EBITDA table, and a discounted cash-flow table used for rNPV.
 
+### Advanced analytics
+
+The analytics toolbox in `models/analytics.py` layers sensitivity analysis, scenario stress tests, Monte Carlo risk distributions,
+goal seek utilities, macro/ESG links, and lightweight regression/optimization helpers on top of the valuation engine. Refer to
+[docs/advanced_analytics.md](docs/advanced_analytics.md) for usage patterns covering tornado/spider charts, VaR/CVaR, copula shocks,
+and time-series forecasting.
+
 ### Streamlit planner
 
 You can explore the same production model through an interactive Streamlit app:
